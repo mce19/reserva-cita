@@ -45,7 +45,7 @@
         <div>
             <h2 class="text-lg font-medium mt-3">1. ¿Para cuando?</h2>
             <div
-                x-data="{
+                 x-data="{
                     picker: null,
                     availableDates: {{ json_encode($availableDates) }}
                 }"
@@ -77,9 +77,9 @@
                                     const span = target.querySelector('.day-slots') || document.createElement('span')
 
                                     span.className = 'day-slots'
-                                    span.innerHTML = pluralize('slot', availableDates[dateString], true)
+                                    span.innerHTML = pluralize('campo', availableDates[dateString], true)
 
-                                    target.append(span)
+                                     target.append(span)
                                 }
                             })
                         }
@@ -95,7 +95,7 @@
                     })
                 "
             >
-                <input x-ref="date" class="mt-6 text-sm bg-slate-100 border-0 rounded-lg px-6 py-4 w-full" placeholder="Choose a date">
+                <input x-ref="date" class="mt-6 text-sm bg-slate-100 border-0 rounded-lg px-6 py-4 w-full" placeholder="Elige una fecha">
             </div>
         </div>
 
@@ -109,7 +109,7 @@
                 }
             }"
             x-on:slots-requested.window="fetchSlots(event)"
-        >
+        >  
             <h2 class="text-lg font-medium mt-3">2. Elige un horario</h2>
             <div class="mt-6" x-show="slots.length">
                 <div class="grid grid-cols-3 md:grid-cols-5 gap-8 mt-6">
@@ -127,16 +127,16 @@
 
             <div class="mt-6" x-show="form.time" x-cloak>
                 <div>
-                    <label for="name" class="sr-only">Your name</label>
-                    <input type="text" name="name" id="name" placeholder="Your name" class="mt-1 text-sm bg-slate-100 border-0 rounded-lg px-6 py-4 w-full" required x-model="form.name">
+                    <label for="name" class="sr-only">Su nombre</label>
+                    <input type="text" name="name" id="name" placeholder="Su nombre" class="mt-1 text-sm bg-slate-100 border-0 rounded-lg px-6 py-4 w-full" required x-model="form.name">
                 </div>
 
                 <div class="mt-3">
-                    <label for="email" class="sr-only">Your email address</label>
-                    <input type="email" name="email" id="email" placeholder="Your email address" class="mt-1 text-sm bg-slate-100 border-0 rounded-lg px-6 py-4 w-full" required x-model="form.email">
+                    <label for="email" class="sr-only">Su correo electrónico</label>
+                    <input type="email" name="email" id="email" placeholder="Su correo electrónico" class="mt-1 text-sm bg-slate-100 border-0 rounded-lg px-6 py-4 w-full" required x-model="form.email">
                 </div>
 
-                <button type="submit" class="mt-6 py-3 px-6 text-sm border border-slate-200 rounded-lg flex flex-col items-center justify-center text-center hover:bg-slate-900 cursor-pointer bg-slate-800 text-white font-medium">Make booking</button>
+                <button type="submit" class="mt-6 py-3 px-6 text-sm border border-slate-200 rounded-lg flex flex-col items-center justify-center text-center hover:bg-slate-900 cursor-pointer bg-slate-800 text-white font-medium">Reservar</button>
             </div>
         </div>
     </form>

@@ -25,7 +25,7 @@ class AppointmentController extends Controller
 
         if (!$availability->first()->containsSlot($request->time)) {
             return response()->json([
-                'error' => 'That slot was taken while you were making your booking. Please try again.'
+                'error' => 'Ese espacio fue ocupado mientras hacías tu reserva. Inténtalo de nuevo.'
             ], 409);
         }
 

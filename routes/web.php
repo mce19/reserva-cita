@@ -24,7 +24,7 @@ use App\Http\Controllers\AppointmentDestroyController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Carbon::setTestNow(now()->addDay()->setTimeFromTimeString('09:00:00'));
+// Carbon::setTestNow(now()->addDay()->setTimeFromTimeString('09:00:00'));
 
 Route::get('/', BookingController::class)->name('bookings');
 Route::get('/bookings/{employee:slug}', BookingEmployeeController::class)->name('bookings.employee');
