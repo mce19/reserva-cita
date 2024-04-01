@@ -1,11 +1,18 @@
 <?php
 
+use App\Models\Service;
 use App\Models\Employee;
 use Illuminate\Support\Carbon;
+use App\Bookings\SlotRangeGenerator;
 use Illuminate\Support\Facades\Route;
 use App\Bookings\ScheduleAvailability;
-use App\Bookings\SlotRangeGenerator;
-use App\Models\Service;
+use App\Http\Controllers\SlotController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ConfirmationController;
+use App\Http\Controllers\BookingEmployeeController;
+use App\Http\Controllers\AppointmentDestroyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +26,16 @@ use App\Models\Service;
 */
 Carbon::setTestNow(now()->addDay()->setTimeFromTimeString('09:00:00'));
 
-Route::get('/', function () {
+Route::get('/', BookingController::class)->name('bookings');
+Route::get('/bookings/{employee:slug}', BookingEmployeeController::class)->name('bookings.employee');
+Route::get('/checkout/{employee:slug}/{service:slug}', CheckoutController::class)->name('checkout');
 
-   $generator = (new SlotRangeGenerator(now()->startOfDay(), now()->addDay()->endOfDay()));
+Route::get('/slots/{employee:slug}/{service:slug}', SlotController::class)->name('slots');
 
-   dd($generator->generate(30));
-});
-  
+Route::post('/appointments', AppointmentController::class)->name('appointments');
+Route::delete('/appointments/{appointment}', AppointmentDestroyController::class)->name('appointments.destroy');
+
+Route::get('/confirmation/{appointment:uuid}', ConfirmationController::class)->name('confirmation');
+
+
+

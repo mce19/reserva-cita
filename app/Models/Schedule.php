@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Schedule extends Model
 {
@@ -17,5 +18,15 @@ class Schedule extends Model
     public function employee()
     {
         return $this->belongsTo(Employee::class);
+    }
+
+    public function getWorkingHoursForDate(Carbon $date)
+    {
+        $hours = array_filter([
+            $this->{strtolower($date->format('l')) . '_starts_at'},
+            $this->{strtolower($date->format('l')) . '_ends_at'},
+        ]);
+
+        return empty($hours) ? null : $hours;
     }
 }
