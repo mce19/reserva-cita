@@ -1,8 +1,8 @@
 <x-app-layout>
     <div>
         <a href="{{ route('bookings') }}" class="text-xs text-blue-500">&larr; Volver</a>
-        <h2 class="text-xl font-medium mt-3">Ahora elige un servicio de {{ $employee->name }}</h2>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mt-6">
+        <h2 class="text-xl font-medium mt-3">Ahora elige un servicio de {{ $employee->name }} 💆</h2>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6">
             @foreach ($services as $service)
                 <a href="{{ route('checkout', [$employee, $service]) }}" class="py-8 px-4 border border-slate-200 rounded-lg shadow-sm flex flex-col items-center justify-center text-center hover:bg-gray-50/75">
                     <div class="text-sm font-medium text-slate-600">{{ $service->title }}</div>

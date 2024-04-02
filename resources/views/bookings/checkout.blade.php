@@ -24,13 +24,13 @@
         class="space-y-12"
     >
         <div>
-            <h2 class="text-xl font-medium mt-3">Esto es lo que estás reservando</h2>
+            <h2 class="text-xl font-medium mt-3">Esto es lo que estás reservando 🤩</h2>
             <div class="flex mt-6 space-x-3 bg-slate-100 rounded-lg p-4">
                 <img src="{{ $employee->profile_photo_url }}" class="rounded-lg size-14 bg-slate-100">
                 <div class="w-full">
                     <div class="flex justify-between">
                         <div class="font-semibold">
-                            {{ $service->title }} ({{ $service->duration }} minutes)
+                            {{ $service->title }} ({{ $service->duration }} minutos)
                         </div>
                         <div class="text-sm">
                             {{ $service->price }}
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div>
-            <h2 class="text-lg font-medium mt-3">1. ¿Para cuando?</h2>
+            <h2 class="text-lg font-medium mt-3">1. ¿Para cuándo? 📅</h2>
             <div
                  x-data="{
                     picker: null,
@@ -109,10 +109,10 @@
                 }
             }"
             x-on:slots-requested.window="fetchSlots(event)"
-        >  
-            <h2 class="text-lg font-medium mt-3">2. Elige un horario</h2>
+        >
+            <h2 class="text-lg font-medium mt-3">2. Elige un horario ⏲</h2>
             <div class="mt-6" x-show="slots.length">
-                <div class="grid grid-cols-3 md:grid-cols-5 gap-8 mt-6">
+                <div class="grid grid-cols-3 md:grid-cols-5 gap-4 mt-6">
                     <template x-for="slot in slots">
                         <div x-text="slot" class="py-3 px-4 text-sm border border-slate-200 rounded-lg text-center hover:bg-gray-50/75 cursor-pointer" x-on:click="form.time = slot" x-bind:class="{ 'bg-slate-100 hover:bg-slate-100': form.time === slot }"></div>
                     </template>
@@ -121,9 +121,9 @@
         </div>
 
         <div>
-            <h2 class="text-lg font-medium mt-3">3. Tus datos y reserva</h2>
+            <h2 class="text-lg font-medium mt-3">3. Ingresa tus datos y confirma tu reserva 📔</h2>
 
-            <div x-show="error" x-text="error" x-cloak class="bg-slate-900 text-white py-4 px-6 rounded-lg mt-3"></div>
+            <div x-show="error" x-text="error" x-cloak class="bg-red-400 text-white py-4 px-6 rounded-lg mt-3"></div>
 
             <div class="mt-6" x-show="form.time" x-cloak>
                 <div>

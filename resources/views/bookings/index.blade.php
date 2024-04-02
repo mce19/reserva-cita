@@ -1,6 +1,6 @@
 <x-app-layout>
     <div>
-        <h2 class="text-xl font-medium">Elige un profesional</h2>
+        <h2 class="text-xl font-medium">Elige un profesional 💇‍♂️</h2>
         <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mt-6">
             @foreach ($employees as $employee)
                 <a href="{{ route('bookings.employee', $employee) }}" class="py-8 px-4 border border-slate-200 rounded-lg shadow-sm flex flex-col items-center justify-center text-center hover:bg-gray-50/75">
