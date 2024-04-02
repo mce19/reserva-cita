@@ -43,7 +43,7 @@
             </div>
         </div>
         <div>
-            <h2 class="text-lg font-medium mt-3">1. ¿Para cuándo? 📅</h2>
+            <h2 class="text-lg font-medium mt-3">1. Selecciona la fecha 📅</h2>
             <div
                  x-data="{
                     picker: null,
@@ -110,7 +110,7 @@
             }"
             x-on:slots-requested.window="fetchSlots(event)"
         >
-            <h2 class="text-lg font-medium mt-3">2. Elige un horario ⏲</h2>
+            <h2 class="text-lg font-medium mt-3">2. Elige un horario 🕑</h2>
             <div class="mt-6" x-show="slots.length">
                 <div class="grid grid-cols-3 md:grid-cols-5 gap-4 mt-6">
                     <template x-for="slot in slots">
@@ -136,7 +136,7 @@
                     <input type="email" name="email" id="email" placeholder="Su correo electrónico" class="mt-1 text-sm bg-slate-100 border-0 rounded-lg px-6 py-4 w-full" required x-model="form.email">
                 </div>
 
-                <button type="submit" class="mt-6 py-3 px-6 text-sm border border-slate-200 rounded-lg flex flex-col items-center justify-center text-center hover:bg-slate-900 cursor-pointer bg-slate-800 text-white font-medium">Reservar</button>
+                <button type="submit" class="mt-6 py-3 px-6 text-sm border border-slate-200 rounded-lg flex flex-col items-center justify-center text-center cursor-pointer hover:bg-blue-700 bg-blue-400  text-white font-medium">Reservar</button>
             </div>
         </div>
     </form>
